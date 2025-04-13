@@ -96,7 +96,7 @@ class FirstScreen extends StatelessWidget {
                       height: 58,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, "/appointment");
+                          Navigator.pushNamed(context, "/appointment_weekly");
                         },
                         style: AppStyles.buttonStyle(AppColors.primaryColor),
                         child: const Text(

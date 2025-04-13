@@ -17,8 +17,12 @@ class CustomBottomNavBar extends StatelessWidget {
         }
         break;
       case 1:
-        if (ModalRoute.of(context)?.settings.name != '/appointment') {
-          Navigator.pushReplacementNamed(context, '/appointment');
+        if (ModalRoute.of(context)?.settings.name != '/appointment_Monthly') {
+          Navigator.pushReplacementNamed(context, '/appointment_Monthly');
+          //if (ModalRoute.of(context)?.settings.name != '/appointment_Weekly') {
+            //Navigator.pushReplacementNamed(context, '/appointment_Weekly');
+          //}
+          
         }
         break;
       case 2:
@@ -66,7 +70,9 @@ class CustomBottomNavBar extends StatelessWidget {
         ),
         _buildNavItem(
           icon: Icons.calendar_today,
-          label: 'Appointments',
+          label: 'Appointment_Monthly',
+        
+          //label: 'Appointment_Weekly',
           isActive: currentIndex == 1,
         ),
         _buildNavItem(
