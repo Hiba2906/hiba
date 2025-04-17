@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:projet_fin_etude/core/theme/colors.dart';
 import 'package:intl/intl.dart';
 import 'package:projet_fin_etude/presentation/widgets/CustomBottomNavBar.dart';
+import 'package:projet_fin_etude/presentation/widgets/confirme_dailog.dart';
+import 'package:projet_fin_etude/presentation/widgets/confirmed_dailog.dart';
 
 class AppointmentMonthly extends StatefulWidget {
   @override
@@ -11,7 +13,15 @@ class AppointmentMonthly extends StatefulWidget {
 class _AppointmentScreenState extends State<AppointmentMonthly> {
   DateTime _currentDate = DateTime.now();
   DateTime? _selectedDate;
-  final List<String> _weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  final List<String> _weekDays = [
+    'Sun',
+    'Mon',
+    'Tue',
+    'Wed',
+    'Thu',
+    'Fri',
+    'Sat'
+  ];
 
   List<DateTime> _getDaysInMonth() {
     var firstDay = DateTime(_currentDate.year, _currentDate.month, 1);
@@ -58,6 +68,7 @@ class _AppointmentScreenState extends State<AppointmentMonthly> {
       });
     }
   }
+// SHOW DAILOG فيه CARD تع Confirm
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +114,6 @@ class _AppointmentScreenState extends State<AppointmentMonthly> {
                       fontWeight: FontWeight.bold,
                       color: AppColors.primaryColor,
                     ),
-                    
                   ),
                 ),
                 IconButton(
@@ -196,7 +206,28 @@ class _AppointmentScreenState extends State<AppointmentMonthly> {
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  
+                      showDialog(
+  context: context,
+  builder: (context) => ConfirmDialog(
+    date: "2025-04-20",
+    onCancel: () {
+      Navigator.of(context).pop(); // غلق Dialog الأول
+    },
+    onConfirm: () {
+      Navigator.of(context).pop(); // غلق Dialog الأول
+      showDialog(
+        context: context,
+        builder: (context) => ConfirmedDialog(turnNumber: 5),
+      );
+    },
+  ),
+);
+
+                    },
+                   
+                
                 child: const Text(
                   'BOOK NOW',
                   style: TextStyle(

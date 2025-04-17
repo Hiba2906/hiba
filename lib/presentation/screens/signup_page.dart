@@ -34,9 +34,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                height: 100,
-              ),
+             const SizedBox(height: 50),
+              Image.asset(
+               'assets/images/logo.png',
+            width: 150,
+            height: 150,
+                  ),
+                  const SizedBox(height: 50),
+              
               CustomTextField(
                 controller: _fullNameController,
                 labelText: "Full Name",

@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
                   icon: const Icon(Icons.notifications,
                       color: AppColors.primaryColor, size: 50),
                   onPressed: () {
-                    Navigator.pushNamed(context, "/notification");
+                    Navigator.pushNamed(context, "/Notification_Page");
                   },
                 ),
               ],
@@ -149,7 +149,7 @@ class HomeScreen extends StatelessWidget {
                       height: 58,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, "/appointment");
+                          Navigator.pushNamed(context, "/appointment_monthly");
                         },
                         style: AppStyles.buttonStyle(AppColors.primaryColor),
                         child: const Text(

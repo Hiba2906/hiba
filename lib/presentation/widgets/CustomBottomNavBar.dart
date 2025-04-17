@@ -17,22 +17,20 @@ class CustomBottomNavBar extends StatelessWidget {
         }
         break;
       case 1:
-        if (ModalRoute.of(context)?.settings.name != '/appointment_Monthly') {
-          Navigator.pushReplacementNamed(context, '/appointment_Monthly');
-          //if (ModalRoute.of(context)?.settings.name != '/appointment_Weekly') {
-            //Navigator.pushReplacementNamed(context, '/appointment_Weekly');
-          //}
+        if (ModalRoute.of(context)?.settings.name != '/appointment_monthly') {
+          Navigator.pushReplacementNamed(context, '/appointment_monthly');
+          
           
         }
         break;
       case 2:
-        if (ModalRoute.of(context)?.settings.name != '/doctor-profile') {
-          Navigator.pushReplacementNamed(context, '/doctor-profile');
+        if (ModalRoute.of(context)?.settings.name != '/DoctorProfile') {
+          Navigator.pushReplacementNamed(context, '/DoctorProfile');
         }
         break;
       case 3:
         if (ModalRoute.of(context)?.settings.name != '/settings') {
-          Navigator.pushReplacementNamed(context, '/settings');
+          Navigator.pushReplacementNamed(context, '/settings_Page');
         }
         break;
     }
@@ -47,7 +45,7 @@ class CustomBottomNavBar extends StatelessWidget {
       icon: Icon(
         icon,
         color: isActive ? AppColors.primaryColor : AppColors.textColor,
-        size: 26,
+        size: 24,
       ),
       label: label,
     );
@@ -72,7 +70,7 @@ class CustomBottomNavBar extends StatelessWidget {
           icon: Icons.calendar_today,
           label: 'Appointment_Monthly',
         
-          //label: 'Appointment_Weekly',
+         
           isActive: currentIndex == 1,
         ),
         _buildNavItem(

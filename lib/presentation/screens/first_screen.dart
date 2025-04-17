@@ -3,9 +3,10 @@ import 'package:projet_fin_etude/core/theme/colors.dart';
 import '../../../core/theme/styles.dart';
 import 'package:projet_fin_etude/presentation/widgets/CustomBottomNavBar.dart';
 
-
 class FirstScreen extends StatelessWidget {
-  const FirstScreen({Key? key}) : super(key: key);
+  final String name; // ✨ المتغير الجديد
+
+  const FirstScreen({Key? key, required this.name}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,51 +14,53 @@ class FirstScreen extends StatelessWidget {
       backgroundColor: AppColors.backgroundPrimary,
       body: SafeArea(
         child: Column(
-          children: [ 
-            SizedBox(height: 20,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.location_on, color: AppColors.primaryColor, size: 50),
-                  onPressed: () {
-                    Navigator.pushNamed(context, "/location");
-                  },
-                ),
-                IconButton(
-                  icon: const Icon(Icons.notifications, color: AppColors.primaryColor , size: 50),
-                  onPressed: () {
-                     Navigator.pushNamed(context, "/notification");
-                  },
-                ),
-              ],
-            ), 
-             SizedBox(height: 60,),
-            Row(
-                       children: [
-        const SizedBox(width: 20), // مساحة تع AppBar مستقبلاً
-        CircleAvatar(
-          radius: 30,
-          backgroundImage: AssetImage("assets/images/user.png",), // يمكن استبدالها بـ AssetImage إذا كانت الصورة محلية
-        ),
-        const SizedBox(height: 20),
-        Text(
-          '    welcome to our APP (name)!',
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ],
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.location_on, color: AppColors.primaryColor, size: 30),
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/location");
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.notifications, color: AppColors.primaryColor, size: 30),
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/notification");
+                    },
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 30,
+                    backgroundImage: AssetImage("assets/images/doctor.png"),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      'Welcome to our APP, $name!',
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
-            const SizedBox(height: 20), // مساحة تع AppBar مستقبلاً
-
-            // Main container
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 30),
             Expanded(
               child: Container(
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.8,
-            margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.1),
                 padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
                 decoration: const BoxDecoration(
                   color: AppColors.backgroundSecondary,
@@ -67,32 +70,20 @@ class FirstScreen extends StatelessWidget {
                   ),
                 ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // 🟦 my appointment at the top
-                    SizedBox(height: 100,),
-                    const Align(
-                      alignment: Alignment.topCenter,
-                      
-                      child: Text(
-                        'You have not booked an appointment yet ',
-                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.textColor,
-                          
-                        ),
+                    const SizedBox(height: 60),
+                    const Text(
+                      'You have not booked an appointment yet',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.textColor,
                       ),
                     ),
-                    const SizedBox(height: 20),
-
-                    
-                  
-                      SizedBox( height: 100,),
-                    // 🟢 New Appointment Button
+                    const Spacer(),
                     SizedBox(
-                      width: 345,
+                      width: double.infinity,
                       height: 58,
                       child: ElevatedButton(
                         onPressed: () {
@@ -103,14 +94,13 @@ class FirstScreen extends StatelessWidget {
                           "book now",
                           style: TextStyle(
                             color: AppColors.backgroundPrimary,
-                            fontSize: 30,
+                            fontSize: 20,
                             fontWeight: FontWeight.bold,
                             letterSpacing: 1.2,
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
                   ],
                 ),
               ),

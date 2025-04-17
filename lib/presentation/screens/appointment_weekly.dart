@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:projet_fin_etude/core/theme/colors.dart';
-
 import 'package:intl/intl.dart';
-
 import 'package:projet_fin_etude/presentation/widgets/CustomBottomNavBar.dart';
+import 'package:projet_fin_etude/presentation/widgets/confirme_dailog.dart';
+import 'package:projet_fin_etude/presentation/widgets/confirmed_dailog.dart';
+
+
 
 
 class AppointmentWeekly extends StatefulWidget {
@@ -14,10 +16,19 @@ class AppointmentWeekly extends StatefulWidget {
 class _AppointmentScreenState extends State<AppointmentWeekly> {
   DateTime _currentDate = DateTime.now();
   DateTime? _selectedDate;
-  final List<String> _weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  final List<String> _weekDays = [
+    'Sun',
+    'Mon',
+    'Tue',
+    'Wed',
+    'Thu',
+    'Fri',
+    'Sat'
+  ];
 
   List<DateTime> _getCurrentWeekDates() {
-    DateTime startOfWeek = _currentDate.subtract(Duration(days: _currentDate.weekday % 7));
+    DateTime startOfWeek =
+        _currentDate.subtract(Duration(days: _currentDate.weekday % 7));
     return List.generate(7, (index) => startOfWeek.add(Duration(days: index)));
   }
 
@@ -45,6 +56,7 @@ class _AppointmentScreenState extends State<AppointmentWeekly> {
         elevation: 0,
         foregroundColor: AppColors.primaryColor,
       ),
+            //nav bar
       bottomNavigationBar: const CustomBottomNavBar(currentIndex: 1),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -153,7 +165,29 @@ class _AppointmentScreenState extends State<AppointmentWeekly> {
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
-                onPressed: () {},
+                
+  onPressed: () {
+   showDialog(
+  context: context,
+  builder: (context) => ConfirmDialog(
+    date: "2025-04-20",
+    onCancel: () {
+      Navigator.of(context).pop(); // غلق Dialog الأول
+    },
+    onConfirm: () {
+      Navigator.of(context).pop(); // غلق Dialog الأول
+      showDialog(
+        context: context,
+        builder: (context) =>  ConfirmedDialog(turnNumber: 5),
+      );
+    },
+  ),
+);
+
+
+
+
+                },
                 child: const Text(
                   'BOOK NOW',
                   style: TextStyle(
@@ -167,7 +201,6 @@ class _AppointmentScreenState extends State<AppointmentWeekly> {
           ],
         ),
       ),
-      //bottomNavigationBar: const CustomBottomNavBar(currentIndex: 1),
     );
   }
 }

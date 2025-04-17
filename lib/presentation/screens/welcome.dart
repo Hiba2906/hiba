@@ -15,30 +15,49 @@ class Welcome extends StatelessWidget {
           color: AppColors.backgroundPrimary,
           child: Column(
             children: [
-              const SizedBox(height: 150),
+              const SizedBox(height: 50),
+
+              // 🔹 لوجو أو أيقونة
+              Image.asset(
+               'assets/images/logo.png',
+            width: 150,
+            height: 150,
+                  ),
+
+
+              const SizedBox(height: 20),
+
+              // 🔹 عنوان رئيسي
               Text(
                 "Welcome to MEDITIME!",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 36,
+                  fontSize: 32,
                   color: AppColors.textColor,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w800,
+                  letterSpacing: 1.2,
                 ),
               ),
-              const SizedBox(height: 20),
+
+              const SizedBox(height: 16),
+
+              // 🔹 جملة تعريفية
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
-                  "Let's make healthcare simpler,\none appointment at a time!",
+                  "Let’s make healthcare simpler,\none appointment at a time!",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 20,
-                    color: AppColors.textColor,
+                    fontSize: 18,
+                    color: AppColors.textColor.withOpacity(0.8),
+                    height: 1.4,
                   ),
                 ),
               ),
+
               const Spacer(),
-              // تحديد ارتفاع الـ Container هنا 50% من الشاشة
+
+              // 🔹 الحاوية السفلية
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(20),
