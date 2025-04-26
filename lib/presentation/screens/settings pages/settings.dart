@@ -25,7 +25,7 @@ class SettingsPage extends StatelessWidget {
           },
         ),
       ),
-      bottomNavigationBar: const CustomBottomNavBar(currentIndex: 3),
+     // bottomNavigationBar: const CustomBottomNavBar(currentIndex: 3),
       body: Column(
         children: [
           const SizedBox(height: 20),
@@ -68,10 +68,19 @@ class SettingsPage extends StatelessWidget {
                   ),
                   const Divider(thickness: 1, height: 30),
                   _buildSettingTile(
+                    icon: Icons.person,
+                    label: "location",
+                    onTap: () {
+                      Navigator.pushNamed(context, "/edit_profile");
+                    },
+                  ),
+                   const Divider(thickness: 1, height: 30),
+                  _buildSettingTile(
                     icon: Icons.logout,
                     label: "log out",
                     onTap: () {
-                      // log out logic
+                         Navigator.pushNamed(context, "/welcome");
+                          // log out logic
                     },
                   ),
                 ],

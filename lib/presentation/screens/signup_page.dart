@@ -141,7 +141,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: 60,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.firstscreen);
+                    Navigator.pushNamed(context, AppRoutes.home);
                   },
                   style: AppStyles.buttonStyle(AppColors.primaryColor),
                   child: const Text(

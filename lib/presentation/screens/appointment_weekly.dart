@@ -58,7 +58,7 @@ class _AppointmentScreenState extends State<AppointmentWeekly> {
         foregroundColor: AppColors.primaryColor,
       ),
             //nav bar
-      bottomNavigationBar: const CustomBottomNavBar(currentIndex: 1),
+     // bottomNavigationBar: const CustomBottomNavBar(currentIndex: 1),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(

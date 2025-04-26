@@ -3,6 +3,7 @@ import 'package:projet_fin_etude/core/theme/colors.dart';
 import 'package:projet_fin_etude/core/theme/styles.dart';
 import 'package:projet_fin_etude/presentation/widgets/CustomBottomNavBar.dart';
 
+
 class DoctorProfile extends StatelessWidget {
   const DoctorProfile({super.key});
 
@@ -62,13 +63,13 @@ class DoctorProfile extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton.icon(
-                icon: const Icon(Icons.message),
-                onPressed: () {
-                  // توجيه لواجهة المراسلة أو الاتصال
-                },
+                icon: const Icon(Icons.message,color:  AppColors.backgroundPrimary,),
+               onPressed: () {
+                          Navigator.pushNamed(context, "/contact_us");
+                        },
                 style: AppStyles.buttonStyle(AppColors.primaryColor),
                 label: const Text(
-                  "Contact Doctor",
+                  "Contact us",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,

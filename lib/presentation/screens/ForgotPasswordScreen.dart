@@ -45,6 +45,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               height: 60,
               child: ElevatedButton(
                 onPressed: () {
+                  Navigator.pushNamed(context, "/reset");
                   // Handle reset logic
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
